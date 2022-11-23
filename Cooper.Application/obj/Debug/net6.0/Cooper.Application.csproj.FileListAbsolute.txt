@@ -1,0 +1,15 @@
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\bin\Debug\net6.0\Cooper.Application.deps.json
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\bin\Debug\net6.0\Cooper.Application.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\bin\Debug\net6.0\Cooper.Application.pdb
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\bin\Debug\net6.0\Cooper.Core.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\bin\Debug\net6.0\Cooper.Core.pdb
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.csproj.AssemblyReference.cache
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.AssemblyInfoInputs.cache
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.AssemblyInfo.cs
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.csproj.CopyComplete
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\refint\Cooper.Application.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\Cooper.Application.pdb
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Application\obj\Debug\net6.0\ref\Cooper.Application.dll

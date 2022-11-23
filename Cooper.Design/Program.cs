@@ -1,3 +1,8 @@
+using Cooper.Application;
+using Cooper.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 namespace Cooper.Design
 {
     internal static class Program
@@ -8,10 +13,17 @@ namespace Cooper.Design
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            var host = CreateHostBuilder().Build();
+            System.Windows.Forms.Application.Run(host.Services.GetRequiredService<Forms.Index>());
         }
+        static IHostBuilder CreateHostBuilder() =>
+            Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddInfrastructure(context.Configuration);
+                    services.AddApplication();
+                    services.AddTransient<Forms.Index>();
+                });
     }
 }

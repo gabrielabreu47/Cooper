@@ -2,23 +2,26 @@
 using Cooper.Application.Bills.Dtos;
 using Cooper.Application.Bills.Enums;
 using Cooper.Application.Bills.Interfaces;
+using Cooper.Application.Products.Interfaces;
 using Cooper.Core.Entities;
 using Cooper.Core.Extensions;
 
 namespace Cooper.Application.Bills.Handlers
 {
-    public class BillHandler
+    public class BillHandler : IBillHandler
     {
         protected readonly IBillService _billService;
         protected readonly IMapper _mapper;
+        protected readonly IProductHandler _productHandler;
 
-        public BillHandler(IBillService billService, IMapper mapper)
+        public BillHandler(IBillService billService, IProductHandler productHandler, IMapper mapper)
         {
             _billService = billService;
             _mapper = mapper;
+            _productHandler = productHandler;
         }
 
-        public async Task<List<ListBillDto>> Get(BillStatus status, DateTime? startDate = null,
+        public virtual async Task<List<BillDto>> Get(BillStatus status, DateTime? startDate = null,
             DateTime? endDate = null, bool orderByAscending = true)
         {
             var query = _billService.Query().Where(x => x.State == status.ToInt());
@@ -28,7 +31,7 @@ namespace Cooper.Application.Bills.Handlers
             return result;
         }
 
-        public async Task<List<ListBillDto>> Get(DateTime? startDate = null,
+        public virtual async Task<List<BillDto>> Get(DateTime? startDate = null,
             DateTime? endDate = null, bool orderByAscending = true)
         {
             var query = _billService.Query();
@@ -38,7 +41,7 @@ namespace Cooper.Application.Bills.Handlers
             return result;
         }
 
-        private Task<List<ListBillDto>> Get(IQueryable<Bill> query, DateTime? startDate = null,
+        private Task<List<BillDto>> Get(IQueryable<Bill> query, DateTime? startDate = null,
             DateTime? endDate = null, bool orderByAscending = true)
         {
             if (endDate == null) endDate = DateTime.Now;
@@ -47,20 +50,34 @@ namespace Cooper.Application.Bills.Handlers
 
             query.Where(x => x.Date >= startDate && x.Date <= endDate);
 
-            _ = orderByAscending ? query.OrderBy(x => x.Date) : query.OrderByDescending(x => x.Date);
+            query = orderByAscending ? query.OrderBy(x => x.Date) : query.OrderByDescending(x => x.Date);
 
             var bills = query.ToList();
 
-            var billDtos = _mapper.Map<List<ListBillDto>>(bills);
+            var billDtos = _mapper.Map<List<BillDto>>(bills);
 
             return Task.FromResult(billDtos);
         }
 
-        public async Task Create(CreateBillDto billDto)
+        public virtual async Task Create(CreateBillDto billDto)
         {
+            foreach(var product in billDto.Products)
+            {
+                await _productHandler.ValidateProductCanBeBilled(product);
+            }
+
             var bill = _mapper.Map<Bill>(billDto);
 
             await _billService.Create(bill);
+        }
+
+        public virtual async Task UpdateStatus(int billId, BillStatus status)
+        {
+            var bill = await _billService.GetByIdAsNoTrackingAsync(billId);
+
+            bill.State = status.ToInt();
+
+            await _billService.Update(billId, bill);
         }
     }
 }

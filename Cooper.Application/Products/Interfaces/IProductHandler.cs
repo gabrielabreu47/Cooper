@@ -1,4 +1,5 @@
-﻿using Cooper.Application.Products.Dtos;
+﻿using Cooper.Application.Bills.Dtos;
+using Cooper.Application.Products.Dtos;
 using Cooper.Core.Entities;
 using System.Linq.Expressions;
 
@@ -13,5 +14,7 @@ namespace Cooper.Application.Products.Interfaces
         Task<bool> Update(int id, UpdateProductDto productDto);
         Task<bool> UpdateProductPrice(UpdateProductPriceDto productPriceDto);
         Task<bool> Delete(int id);
+        Task<bool> ValidateAvailabilityInStock(int productId, int amount);
+        Task ValidateProductCanBeBilled(CreateBillProductDto product);
     }
 }

@@ -26,5 +26,10 @@ namespace Cooper.Core.Extensions
         {
             return Convert.ToChar(value);
         }
+
+        public static TEnum ToEnum<TEnum> (this int value) where TEnum : Enum
+        {
+            return (TEnum)Enum.ToObject(typeof(TEnum), value);
+        }
     }
 }

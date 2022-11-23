@@ -6,6 +6,7 @@ namespace Cooper.Application.Generic.Interfaces
     {
         IQueryable<TEntity> Query();
         Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByIdAsNoTrackingAsync(int id);
         Task<TEntity> Create(TEntity entity);
         Task<TEntity> Update(TEntity entity);
         Task<TEntity> Update(int id, TEntity entity);

@@ -7,7 +7,7 @@ namespace Cooper.Application.Products.Dtos
         public string Name { get; set; }
         public string Description { get; set; }
         public int Sku { get; set; }
-        public int Amount { get; set; }
+        public int Stock { get; set; }
         public decimal WholesalePrice { get; set; }
         public decimal UnitPrice { get; set; }
     }
@@ -17,7 +17,7 @@ namespace Cooper.Application.Products.Dtos
         public int Id { get; set; }
         public string Name { get; set; }
         public int Sku { get; set; }
-        public int Amount { get; set; }
+        public int Stock { get; set; }
         public decimal WholesalePrice { get; set; }
         public decimal UnitPrice { get; set; }
     }
@@ -27,7 +27,7 @@ namespace Cooper.Application.Products.Dtos
         public string Name { get; set; }
         public string Description { get; set; }
         public int Sku { get; set; }
-        public int Amount { get; set; }
+        public int Stock { get; set; }
         public decimal WholesalePrice { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal PurchasePrice { get; set; }
@@ -38,7 +38,7 @@ namespace Cooper.Application.Products.Dtos
         public string Name { get; set; }
         public string Description { get; set; }
         public int Sku { get; set; }
-        public int Amount { get; set; }
+        public int Stock { get; set; }
     }
 
     public class UpdateProductPriceDto
