@@ -10,6 +10,7 @@ namespace Cooper.Application.Products.Interfaces
         Task<List<ListProductDto>> Get(int top = 10, int skip = 0, Expression<Func<Product,
             object>>? orderBy = null, bool orderByAscending = true);
         Task<ProductDto> GetById(int id);
+        Task<ProductDto> GetByCode(string code);
         Task<bool> Create(CreateProductDto productDto);
         Task<bool> Update(int id, UpdateProductDto productDto);
         Task<bool> UpdateProductPrice(UpdateProductPriceDto productPriceDto);

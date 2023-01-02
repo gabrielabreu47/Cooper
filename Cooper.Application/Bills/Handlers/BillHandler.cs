@@ -59,7 +59,7 @@ namespace Cooper.Application.Bills.Handlers
             return Task.FromResult(billDtos);
         }
 
-        public virtual async Task Create(CreateBillDto billDto)
+        public virtual async Task<BillDto> Create(CreateBillDto billDto)
         {
             foreach(var product in billDto.Products)
             {
@@ -69,6 +69,8 @@ namespace Cooper.Application.Bills.Handlers
             var bill = _mapper.Map<Bill>(billDto);
 
             await _billService.Create(bill);
+
+            return _mapper.Map<BillDto>(bill);
         }
 
         public virtual async Task UpdateStatus(int billId, BillStatus status)

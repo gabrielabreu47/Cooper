@@ -7,6 +7,7 @@ namespace Cooper.Design
 {
     internal static class Program
     {
+        public static IServiceProvider ServiceProvider { get; set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -15,6 +16,7 @@ namespace Cooper.Design
         {
             ApplicationConfiguration.Initialize();
             var host = CreateHostBuilder().Build();
+            ServiceProvider = host.Services;
             System.Windows.Forms.Application.Run(host.Services.GetRequiredService<Forms.Index>());
         }
         static IHostBuilder CreateHostBuilder() =>
@@ -23,7 +25,8 @@ namespace Cooper.Design
                 {
                     services.AddInfrastructure(context.Configuration);
                     services.AddApplication();
-                    services.AddTransient<Forms.Index>();
+                    services.AddForms();
+                    services.AddComponents();
                 });
     }
 }

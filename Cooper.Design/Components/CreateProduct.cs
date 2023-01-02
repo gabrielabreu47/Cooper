@@ -1,25 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using AutoMapper;
+using Cooper.Application.Products.Dtos;
+using Cooper.Application.Products.Interfaces;
 
 namespace Cooper.Design.Components
 {
     public partial class CreateProduct : UserControl
     {
-        public CreateProduct()
+        private readonly IMapper _mapper;
+        private readonly IProductHandler _productHandler;
+
+        public CreateProduct(IProductHandler productHandler, IMapper mapper)
         {
+            _mapper = mapper;
+            _productHandler = productHandler;
             InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
+            var createProductDto = _mapper.Map<CreateProductDto>(this);
+            await _productHandler.Create(createProductDto);
+            Parent.Show();
+            Hide();
+        }
 
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Parent.Show();
+            Hide();
         }
     }
 }

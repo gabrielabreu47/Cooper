@@ -19,6 +19,13 @@ namespace Cooper.Application.Products.Handlers
             _productPriceService = productPriceService;
         }
 
+        public async Task<ProductDto> GetByCode(string code)
+        {
+            var product = _productService.Query().FirstOrDefault(x => x.Code == code);
+
+            return _mapper.Map<ProductDto>(product);
+        }
+
         public async Task<bool> UpdateProductPrice(UpdateProductPriceDto productPriceDto)
         {
             try

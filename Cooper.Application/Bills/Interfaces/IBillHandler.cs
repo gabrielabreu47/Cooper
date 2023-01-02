@@ -11,7 +11,7 @@ namespace Cooper.Application.Bills.Interfaces
         Task<List<BillDto>> Get(DateTime? startDate = null,
             DateTime? endDate = null, bool orderByAscending = true);
 
-        Task Create(CreateBillDto billDto);
+        Task<BillDto> Create(CreateBillDto billDto);
 
         Task UpdateStatus(int billId, BillStatus status);
     }

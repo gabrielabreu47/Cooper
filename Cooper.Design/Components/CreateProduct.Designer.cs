@@ -32,19 +32,19 @@
             this.formContainer = new System.Windows.Forms.TableLayoutPanel();
             this.headLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.descriptionLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.amountPerDetailLabel = new System.Windows.Forms.Label();
-            this.amountPerWholesaleLabel = new System.Windows.Forms.Label();
             this.amountPerDetailTextBox = new System.Windows.Forms.TextBox();
-            this.amountPerWholesaleTextBox = new System.Windows.Forms.TextBox();
             this.priceLabel = new System.Windows.Forms.Label();
-            this.priceWholesaleLabel = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
-            this.priceWholesaleTextBox = new System.Windows.Forms.TextBox();
             this.stockLabel = new System.Windows.Forms.Label();
             this.stockTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.amountPerWholesaleLabel = new System.Windows.Forms.Label();
+            this.amountPerWholesaleTextBox = new System.Windows.Forms.TextBox();
+            this.priceWholesaleLabel = new System.Windows.Forms.Label();
+            this.priceWholesaleTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.mainContainer.SuspendLayout();
@@ -134,18 +134,6 @@
             this.nameLabel.Text = "Nombre";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // descriptionLabel
-            // 
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.descriptionLabel.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.descriptionLabel.Location = new System.Drawing.Point(437, 87);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(122, 58);
-            this.descriptionLabel.TabIndex = 2;
-            this.descriptionLabel.Text = "Descripcion";
-            this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // nameTextBox
             // 
             this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -155,16 +143,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(284, 27);
             this.nameTextBox.TabIndex = 3;
-            // 
-            // descriptionRichTextBox
-            // 
-            this.descriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.descriptionRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.descriptionRichTextBox.Location = new System.Drawing.Point(437, 148);
-            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
-            this.descriptionRichTextBox.Size = new System.Drawing.Size(284, 52);
-            this.descriptionRichTextBox.TabIndex = 4;
-            this.descriptionRichTextBox.Text = "";
             // 
             // amountPerDetailLabel
             // 
@@ -178,18 +156,6 @@
             this.amountPerDetailLabel.Text = "Cantidad al detalle";
             this.amountPerDetailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // amountPerWholesaleLabel
-            // 
-            this.amountPerWholesaleLabel.AutoSize = true;
-            this.amountPerWholesaleLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.amountPerWholesaleLabel.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.amountPerWholesaleLabel.Location = new System.Drawing.Point(437, 203);
-            this.amountPerWholesaleLabel.Name = "amountPerWholesaleLabel";
-            this.amountPerWholesaleLabel.Size = new System.Drawing.Size(224, 58);
-            this.amountPerWholesaleLabel.TabIndex = 6;
-            this.amountPerWholesaleLabel.Text = "Cantidad al por mayor";
-            this.amountPerWholesaleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // amountPerDetailTextBox
             // 
             this.amountPerDetailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -199,16 +165,6 @@
             this.amountPerDetailTextBox.Name = "amountPerDetailTextBox";
             this.amountPerDetailTextBox.Size = new System.Drawing.Size(284, 27);
             this.amountPerDetailTextBox.TabIndex = 7;
-            // 
-            // amountPerWholesaleTextBox
-            // 
-            this.amountPerWholesaleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.amountPerWholesaleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.amountPerWholesaleTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.amountPerWholesaleTextBox.Location = new System.Drawing.Point(437, 264);
-            this.amountPerWholesaleTextBox.Name = "amountPerWholesaleTextBox";
-            this.amountPerWholesaleTextBox.Size = new System.Drawing.Size(284, 27);
-            this.amountPerWholesaleTextBox.TabIndex = 8;
             // 
             // priceLabel
             // 
@@ -222,18 +178,6 @@
             this.priceLabel.Text = "Precio al detalle";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // priceWholesaleLabel
-            // 
-            this.priceWholesaleLabel.AutoSize = true;
-            this.priceWholesaleLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.priceWholesaleLabel.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.priceWholesaleLabel.Location = new System.Drawing.Point(437, 319);
-            this.priceWholesaleLabel.Name = "priceWholesaleLabel";
-            this.priceWholesaleLabel.Size = new System.Drawing.Size(198, 58);
-            this.priceWholesaleLabel.TabIndex = 10;
-            this.priceWholesaleLabel.Text = "Precio al por mayor";
-            this.priceWholesaleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // priceTextBox
             // 
             this.priceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -243,16 +187,6 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(284, 27);
             this.priceTextBox.TabIndex = 11;
-            // 
-            // priceWholesaleTextBox
-            // 
-            this.priceWholesaleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.priceWholesaleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.priceWholesaleTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.priceWholesaleTextBox.Location = new System.Drawing.Point(437, 380);
-            this.priceWholesaleTextBox.Name = "priceWholesaleTextBox";
-            this.priceWholesaleTextBox.Size = new System.Drawing.Size(284, 27);
-            this.priceWholesaleTextBox.TabIndex = 12;
             // 
             // stockLabel
             // 
@@ -276,6 +210,72 @@
             this.stockTextBox.Size = new System.Drawing.Size(284, 27);
             this.stockTextBox.TabIndex = 14;
             // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.descriptionLabel.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.descriptionLabel.Location = new System.Drawing.Point(437, 87);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(122, 58);
+            this.descriptionLabel.TabIndex = 2;
+            this.descriptionLabel.Text = "Descripcion";
+            this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // descriptionRichTextBox
+            // 
+            this.descriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.descriptionRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.descriptionRichTextBox.Location = new System.Drawing.Point(437, 148);
+            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
+            this.descriptionRichTextBox.Size = new System.Drawing.Size(284, 52);
+            this.descriptionRichTextBox.TabIndex = 4;
+            this.descriptionRichTextBox.Text = "";
+            // 
+            // amountPerWholesaleLabel
+            // 
+            this.amountPerWholesaleLabel.AutoSize = true;
+            this.amountPerWholesaleLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.amountPerWholesaleLabel.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.amountPerWholesaleLabel.Location = new System.Drawing.Point(437, 203);
+            this.amountPerWholesaleLabel.Name = "amountPerWholesaleLabel";
+            this.amountPerWholesaleLabel.Size = new System.Drawing.Size(224, 58);
+            this.amountPerWholesaleLabel.TabIndex = 6;
+            this.amountPerWholesaleLabel.Text = "Cantidad al por mayor";
+            this.amountPerWholesaleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // amountPerWholesaleTextBox
+            // 
+            this.amountPerWholesaleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.amountPerWholesaleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.amountPerWholesaleTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.amountPerWholesaleTextBox.Location = new System.Drawing.Point(437, 264);
+            this.amountPerWholesaleTextBox.Name = "amountPerWholesaleTextBox";
+            this.amountPerWholesaleTextBox.Size = new System.Drawing.Size(284, 27);
+            this.amountPerWholesaleTextBox.TabIndex = 8;
+            // 
+            // priceWholesaleLabel
+            // 
+            this.priceWholesaleLabel.AutoSize = true;
+            this.priceWholesaleLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.priceWholesaleLabel.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.priceWholesaleLabel.Location = new System.Drawing.Point(437, 319);
+            this.priceWholesaleLabel.Name = "priceWholesaleLabel";
+            this.priceWholesaleLabel.Size = new System.Drawing.Size(198, 58);
+            this.priceWholesaleLabel.TabIndex = 10;
+            this.priceWholesaleLabel.Text = "Precio al por mayor";
+            this.priceWholesaleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // priceWholesaleTextBox
+            // 
+            this.priceWholesaleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.priceWholesaleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.priceWholesaleTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.priceWholesaleTextBox.Location = new System.Drawing.Point(437, 380);
+            this.priceWholesaleTextBox.Name = "priceWholesaleTextBox";
+            this.priceWholesaleTextBox.Size = new System.Drawing.Size(284, 27);
+            this.priceWholesaleTextBox.TabIndex = 12;
+            // 
             // saveButton
             // 
             this.saveButton.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -298,6 +298,7 @@
             this.cancelButton.TabIndex = 16;
             this.cancelButton.Text = "Cancelar";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // CreateProduct
             // 
@@ -316,24 +317,24 @@
 
         #endregion
 
-        private TableLayoutPanel mainContainer;
-        private TableLayoutPanel formContainer;
-        private Label headLabel;
-        private Label nameLabel;
-        private TextBox nameTextBox;
-        private Label amountPerDetailLabel;
-        private TextBox amountPerDetailTextBox;
-        private Label priceLabel;
-        private TextBox priceTextBox;
-        private Label stockLabel;
-        private TextBox stockTextBox;
-        private Label descriptionLabel;
-        private RichTextBox descriptionRichTextBox;
-        private Label amountPerWholesaleLabel;
-        private TextBox amountPerWholesaleTextBox;
-        private Label priceWholesaleLabel;
-        private TextBox priceWholesaleTextBox;
-        private Button saveButton;
-        private Button cancelButton;
+        public TableLayoutPanel mainContainer;
+        public TableLayoutPanel formContainer;
+        public Label headLabel;
+        public Label nameLabel;
+        public TextBox nameTextBox;
+        public Label amountPerDetailLabel;
+        public TextBox amountPerDetailTextBox;
+        public Label priceLabel;
+        public TextBox priceTextBox;
+        public Label stockLabel;
+        public TextBox stockTextBox;
+        public Label descriptionLabel;
+        public RichTextBox descriptionRichTextBox;
+        public Label amountPerWholesaleLabel;
+        public TextBox amountPerWholesaleTextBox;
+        public Label priceWholesaleLabel;
+        public TextBox priceWholesaleTextBox;
+        public Button saveButton;
+        public Button cancelButton;
     }
 }
