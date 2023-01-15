@@ -6,6 +6,7 @@ using Cooper.Application.Products.Enums;
 using Cooper.Application.Products.Interfaces;
 using Cooper.Core.Entities;
 using Cooper.Core.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cooper.Application.Products.Handlers
 {
@@ -19,11 +20,17 @@ namespace Cooper.Application.Products.Handlers
             _productPriceService = productPriceService;
         }
 
-        public async Task<ProductDto> GetByCode(string code)
+        public async Task<List<PriceDto>> GetProductPrices(int productId)
         {
-            var product = _productService.Query().FirstOrDefault(x => x.Code == code);
-
-            return _mapper.Map<ProductDto>(product);
+            return await _productPriceService.Query()
+                .Where(x => x.ProductId == productId)
+                .Select(x => new PriceDto
+                {
+                    Date = x.Date,
+                    UnitPrice = x.UnitPrice,
+                    WholesalePrice = x.WholesalePrice
+                })
+                .ToListAsync();
         }
 
         public async Task<bool> UpdateProductPrice(UpdateProductPriceDto productPriceDto)
@@ -79,6 +86,33 @@ namespace Cooper.Application.Products.Handlers
                 errorMessage = errorMessage.Replace(BillErrorMessageKeys.Product.GetDescription(), product.Name);
 
                 throw new Exception(errorMessage);
+            }
+        }
+
+        public async Task<bool> UpdateProductsStock(List<UpdateProductStockDto> updateProductStocks, bool isBilling = false)
+        {
+            try
+            {
+                List<Product> products = new();
+
+                foreach(var updateProductStock in updateProductStocks)
+                {
+                    Product product = await GetEntityById(updateProductStock.ProductId);
+
+                    _mapper.Map(updateProductStock, product);
+
+                    product.Stock = isBilling ? updateProductStock.Stock : product.Stock + updateProductStock.Stock;
+
+                    products.Add(product);
+                }
+
+                return await _productService.UpdateRange(products);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
             }
         }
     }

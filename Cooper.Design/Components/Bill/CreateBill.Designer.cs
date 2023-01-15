@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,8 +48,8 @@
             this.clientNameTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.telephoneTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.telephoneTextBox = new System.Windows.Forms.MaskedTextBox();
             this.cleanProductAreaButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,12 +77,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.productId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -196,6 +191,7 @@
             this.advancedSearchButton.TabIndex = 4;
             this.advancedSearchButton.Text = "Busqueda Avanzada";
             this.advancedSearchButton.UseVisualStyleBackColor = false;
+            this.advancedSearchButton.Click += new System.EventHandler(this.advancedSearchButton_Click);
             // 
             // tableLayoutPanel7
             // 
@@ -235,7 +231,7 @@
             // 
             this.productPriceLabel.AutoSize = true;
             this.productPriceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productPriceLabel.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.productPriceLabel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.productPriceLabel.Location = new System.Drawing.Point(3, 33);
             this.productPriceLabel.Name = "productPriceLabel";
             this.productPriceLabel.Size = new System.Drawing.Size(212, 34);
@@ -312,6 +308,7 @@
             this.productCodeTextBox.PlaceholderText = "Codigo";
             this.productCodeTextBox.Size = new System.Drawing.Size(206, 26);
             this.productCodeTextBox.TabIndex = 2;
+            this.productCodeTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.productCodeTextBox_KeyUp);
             // 
             // tableLayoutPanel15
             // 
@@ -376,8 +373,8 @@
             this.tableLayoutPanel19.ColumnCount = 1;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.Controls.Add(this.telephoneTextBox, 0, 1);
             this.tableLayoutPanel19.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.telephoneTextBox, 0, 1);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(227, 3);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
@@ -386,18 +383,6 @@
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(218, 67);
             this.tableLayoutPanel19.TabIndex = 0;
-            // 
-            // telephoneTextBox
-            // 
-            this.telephoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.telephoneTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.telephoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.telephoneTextBox.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.telephoneTextBox.Location = new System.Drawing.Point(3, 37);
-            this.telephoneTextBox.Name = "telephoneTextBox";
-            this.telephoneTextBox.PlaceholderText = "(809) 000-0000";
-            this.telephoneTextBox.Size = new System.Drawing.Size(212, 26);
-            this.telephoneTextBox.TabIndex = 5;
             // 
             // label7
             // 
@@ -412,6 +397,17 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Telefono";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // telephoneTextBox
+            // 
+            this.telephoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.telephoneTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.telephoneTextBox.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.telephoneTextBox.Location = new System.Drawing.Point(3, 36);
+            this.telephoneTextBox.Mask = "+1 (000) 000-0000";
+            this.telephoneTextBox.Name = "telephoneTextBox";
+            this.telephoneTextBox.Size = new System.Drawing.Size(212, 33);
+            this.telephoneTextBox.TabIndex = 9;
             // 
             // cleanProductAreaButton
             // 
@@ -517,10 +513,10 @@
             this.wholesaleRadioButton.Name = "wholesaleRadioButton";
             this.wholesaleRadioButton.Size = new System.Drawing.Size(103, 61);
             this.wholesaleRadioButton.TabIndex = 1;
-            this.wholesaleRadioButton.TabStop = true;
             this.wholesaleRadioButton.Text = "Al por mayor";
             this.wholesaleRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.wholesaleRadioButton.UseVisualStyleBackColor = true;
+            this.wholesaleRadioButton.CheckedChanged += new System.EventHandler(this.wholesaleRadioButton_CheckedChanged);
             // 
             // retailRadioButton
             // 
@@ -529,6 +525,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.retailRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.retailRadioButton.AutoSize = true;
+            this.retailRadioButton.Checked = true;
             this.retailRadioButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.retailRadioButton.Location = new System.Drawing.Point(3, 3);
             this.retailRadioButton.Name = "retailRadioButton";
@@ -538,6 +535,7 @@
             this.retailRadioButton.Text = "Al detalle";
             this.retailRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.retailRadioButton.UseVisualStyleBackColor = true;
+            this.retailRadioButton.CheckedChanged += new System.EventHandler(this.retailRadioButton_CheckedChanged);
             // 
             // tableLayoutPanel6
             // 
@@ -655,6 +653,7 @@
             this.cleanAllButton.TabIndex = 7;
             this.cleanAllButton.Text = "Limpiar";
             this.cleanAllButton.UseVisualStyleBackColor = false;
+            this.cleanAllButton.Click += new System.EventHandler(this.cleanAllButton_Click);
             // 
             // outstandingCheckBox
             // 
@@ -690,35 +689,41 @@
             this.productTable.AllowUserToAddRows = false;
             this.productTable.AllowUserToDeleteRows = false;
             this.productTable.AllowUserToOrderColumns = true;
+            this.productTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.productTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.productTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.productTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.productTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productId,
-            this.product,
-            this.saleType,
-            this.stock,
-            this.total,
-            this.delete});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.productTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productTable.Location = new System.Drawing.Point(3, 3);
+            this.productTable.MultiSelect = false;
             this.productTable.Name = "productTable";
             this.productTable.ReadOnly = true;
+            this.productTable.RowHeadersWidth = 70;
             this.productTable.RowTemplate.Height = 25;
             this.productTable.ShowCellErrors = false;
             this.productTable.ShowCellToolTips = false;
             this.productTable.ShowEditingIcon = false;
             this.productTable.ShowRowErrors = false;
             this.productTable.Size = new System.Drawing.Size(1026, 361);
-            this.productTable.TabIndex = 0;
+            this.productTable.TabIndex = 3;
+            this.productTable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productTable_RowHeaderMouseDoubleClick);
             // 
             // tableLayoutPanel9
             // 
@@ -859,48 +864,6 @@
             this.radioButton6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // productId
-            // 
-            this.productId.HeaderText = "Id";
-            this.productId.Name = "productId";
-            this.productId.ReadOnly = true;
-            // 
-            // product
-            // 
-            this.product.HeaderText = "Producto";
-            this.product.Name = "product";
-            this.product.ReadOnly = true;
-            this.product.Width = 400;
-            // 
-            // saleType
-            // 
-            this.saleType.HeaderText = "Tipo de Venta";
-            this.saleType.Name = "saleType";
-            this.saleType.ReadOnly = true;
-            this.saleType.Width = 175;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "Cantidad";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 95;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 90;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.MinimumWidth = 50;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Width = 50;
-            // 
             // CreateBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -958,18 +921,14 @@
         private TableLayoutPanel tableLayoutPanel8;
         private TextBox productCodeTextBox;
         private Button addProductButton;
-        private TextBox stockTextBox;
         private Label totalLabel;
         private Button billButton;
         private TableLayoutPanel tableLayoutPanel13;
-        private DataGridView productTable;
         private TableLayoutPanel tableLayoutPanel9;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Button cleanProductAreaButton;
         private TableLayoutPanel tableLayoutPanel15;
-        private RadioButton wholesaleRadioButton;
-        private RadioButton retailRadioButton;
         private TableLayoutPanel tableLayoutPanel11;
         private RadioButton radioButton3;
         private RadioButton radioButton4;
@@ -982,22 +941,20 @@
         private Button cancelButton;
         private Button cleanAllButton;
         private TableLayoutPanel tableLayoutPanel14;
-        private CheckBox outstandingCheckBox;
         private TableLayoutPanel tableLayoutPanel16;
         private Label label2;
         private TableLayoutPanel tableLayoutPanel20;
-        private TextBox clientNameTextBox;
         private Label label6;
         private TableLayoutPanel tableLayoutPanel19;
-        private TextBox telephoneTextBox;
         private Label label7;
         private TableLayoutPanel tableLayoutPanel17;
         private TableLayoutPanel tableLayoutPanel18;
-        private DataGridViewTextBoxColumn productId;
-        private DataGridViewTextBoxColumn product;
-        private DataGridViewTextBoxColumn saleType;
-        private DataGridViewTextBoxColumn stock;
-        private DataGridViewTextBoxColumn total;
-        private DataGridViewButtonColumn delete;
+        private DataGridView productTable;
+        public TextBox stockTextBox;
+        public RadioButton wholesaleRadioButton;
+        public RadioButton retailRadioButton;
+        public CheckBox outstandingCheckBox;
+        public TextBox clientNameTextBox;
+        public MaskedTextBox telephoneTextBox;
     }
 }

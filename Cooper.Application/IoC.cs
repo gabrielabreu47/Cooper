@@ -13,7 +13,7 @@ namespace Cooper.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddTransient<IBillHandler, BillHandler>();
+            services.AddTransient<IBillHandler, BillReportHandler>();
 
             services.AddTransient<IDebtHandler, DebtHandler>();
 

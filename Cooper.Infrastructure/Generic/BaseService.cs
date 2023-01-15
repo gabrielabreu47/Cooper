@@ -60,20 +60,5 @@ namespace Cooper.Infrastructure.Generic
             await _dbContext.SaveChangesAsync();
             return entity;
         }
-
-        public async  Task<TEntity> Update(int id, TEntity entity)
-        {
-            if (id != entity.Id) throw new Exception(ErrorMessages.IdDontMatch.GetDescription());
-
-            var existingEntity = await GetByIdAsync(id);
-
-            _mapper.Map(entity, existingEntity);
-
-            _dbSet.Update(existingEntity);
-
-            await _dbContext.SaveChangesAsync();
-
-            return existingEntity;
-        }
     }
 }

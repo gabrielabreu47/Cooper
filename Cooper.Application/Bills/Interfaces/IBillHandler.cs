@@ -5,6 +5,9 @@ namespace Cooper.Application.Bills.Interfaces
 {
     public interface IBillHandler
     {
+        Task<IncomeReportDto> GetIncomesReport(DateTime startDate, DateTime endDate);
+        Task<BillDto> GetById(int id);
+
         Task<List<BillDto>> Get(BillStatus status, DateTime? startDate = null,
             DateTime? endDate = null, bool orderByAscending = true);
 

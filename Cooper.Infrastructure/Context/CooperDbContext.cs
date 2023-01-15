@@ -13,6 +13,7 @@ namespace Cooper.Infrastructure.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductPrice> ProductPrices { get; set; }
+        public DbSet<ProductStockDetail> ProductStockDetails { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillProduct> BillProducts { get; set; }
 

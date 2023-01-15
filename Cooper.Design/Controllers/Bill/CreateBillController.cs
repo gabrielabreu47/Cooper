@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using Cooper.Application.Bills.Dtos;
-using Cooper.Application.Bills.Handlers;
 using Cooper.Application.Bills.Interfaces;
 using Cooper.Application.Products.Dtos;
-using Cooper.Application.Products.Handlers;
 using Cooper.Application.Products.Interfaces;
+using Cooper.Core.Extensions;
 
 namespace Cooper.Design.Controllers.Bill
 {
@@ -52,7 +51,7 @@ namespace Cooper.Design.Controllers.Bill
 
         public async Task<ProductDto> GetProduct(string code)
         {
-            return await _productHandler.GetByCode(code);
+            return await _productHandler.GetById(code.ToInt());
         }
 
         public Task PrintBill(BillDto bill)

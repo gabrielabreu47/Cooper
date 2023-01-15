@@ -13,7 +13,7 @@ namespace Cooper.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<CooperDbContext>(optionsAction => optionsAction
-            .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            .UseSqlite(@"Data Source= C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\Cooper.sqlite"));
 
             services.AddTransient<ICooperDbContext, CooperDbContext>();
 

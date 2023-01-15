@@ -25,16 +25,17 @@ namespace Cooper.Application.Bills.Mappings
 
             CreateMap<BillProduct, BillProductDto>()
                 .ForPath(dest => dest.Name, op => op.MapFrom(source => source.Product.Name))
-                .ForPath(dest => dest.Price, op => op.MapFrom(source => 
-                    source.SelledAsWholesale 
-                    ? source.Product.GetProductPrice().WholesalePrice 
-                    : source.Product.GetProductPrice().UnitPrice));
+                .ForPath(dest => dest.Price, op => op.Ignore());
 
             CreateMap<BillProductDto, BillProduct>();
         }
         private void MapCreateBillDto()
         {
-            CreateMap<CreateBillDto, Bill>();
+            CreateMap<CreateBillDto, Bill>()
+                .ForMember(dest => dest.State, op => op.MapFrom(source => source.Status.ToInt()))
+                .ForMember(dest => dest.Date, op => op.MapFrom(source => DateTime.Now));
+
+            CreateMap<CreateBillProductDto, BillProduct>();
         }
         private void MapPrintBillDto()
         {

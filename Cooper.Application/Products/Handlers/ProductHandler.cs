@@ -2,6 +2,7 @@
 using Cooper.Application.Products.Dtos;
 using Cooper.Application.Products.Interfaces;
 using Cooper.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Cooper.Application.Products.Handlers
@@ -17,23 +18,62 @@ namespace Cooper.Application.Products.Handlers
             _mapper = mapper;
         }
 
-        public Task<List<ListProductDto>> Get(int top = 10, int skip = 0, Expression<Func<Product,
-            object>>? orderBy = null, bool orderByAscending = true)
+        public Task<List<ListProductDto>> Get(Expression<Func<Product, bool>>? filter = null)
         {
             var query = _productService.Query();
+            
+            if(filter != null) query = query.Where(filter);
+                
+            query = query.Include(x => x.ProductPrices);
 
-            if(orderBy != null) _ = orderByAscending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
-
-            var result = query.Skip(skip).Take(top).ToList();
+            var result = query.ToList();
 
             var productDto = _mapper.Map<List<ListProductDto>>(result);
 
             return Task.FromResult(productDto);
         }
 
+        protected async Task<Product> GetEntityById(int id)
+        {
+            var product = await _productService.Query()
+                .Where(x => x.Id == id)
+                .Include(x => x.ProductPrices)
+                .Include(x => x.ProductStockDetails)
+                .FirstOrDefaultAsync();
+
+            return product;
+        }
+
         public async Task<ProductDto> GetById(int id)
         {
-            var product = await _productService.GetByIdAsync(id);
+            var product = await _productService.Query()
+                .Where(x => x.Id == id)
+                .Include(x => x.ProductPrices)
+                .Include(x => x.ProductStockDetails)
+                .FirstOrDefaultAsync();
+
+            var productDto = _mapper.Map<ProductDto>(product);
+
+            return productDto;
+        }
+
+        public async Task<TDto> GetById<TDto>(int id) where TDto : class
+        {
+            var product = await GetEntityById(id);
+
+            var productDto = _mapper.Map<TDto>(product);
+
+            return productDto;
+        }
+
+        public async Task<ProductDto> GetByIdAsNoTracking(int id)
+        {
+            var product = await _productService.Query()
+                .Where(x => x.Id == id)
+                .Include(x => x.ProductPrices)
+                .Include(x => x.ProductStockDetails)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
             var productDto = _mapper.Map<ProductDto>(product);
 
@@ -62,9 +102,30 @@ namespace Cooper.Application.Products.Handlers
         {
             try
             {
-                var product = _mapper.Map<Product>(productDto);
+                if (productDto.Id != id) throw new Exception("Id doesn't match");
 
-                await _productService.Update(id, product);
+                Product product = await GetEntityById(id);
+
+                var productStockDetail = product.GetProductStockDetail();
+
+                if(productStockDetail.StockCountAsWholesale != productDto.StockCountAsWholesale
+                    || productStockDetail.StockCountAsRetail != productDto.StockCountAsRetail)
+                {
+                    product.ProductStockDetails = new List<ProductStockDetail>
+                    {
+                        new ProductStockDetail
+                        {
+                            ProductId = id,
+                            Date= DateTime.Now,
+                            StockCountAsRetail = productDto.StockCountAsRetail,
+                            StockCountAsWholesale= productDto.StockCountAsWholesale
+                        }
+                    };
+                }
+
+                _mapper.Map(productDto, product);
+
+                await _productService.Update(product);
 
                 return true;
             }

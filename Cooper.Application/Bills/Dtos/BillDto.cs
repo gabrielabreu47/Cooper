@@ -5,30 +5,15 @@ namespace Cooper.Application.Bills.Dtos
 {
     public class BillDto : BaseDto
     {
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
         public string ClientName { get; set; }
-        public string? RNC { get; set; }
+        public string? Phone { get; set; }
         public BillStatus State { get; set; }
-        public decimal SubTotal 
-        {
-            get
-            {
-                return Products.Sum(x => x.PriceTotal);
-            }
-        }
         public decimal Total
         {
             get
             {
-                return Taxes.HasValue ? SubTotal + Taxes.Value : SubTotal;
-            }
-        }
-
-        public decimal? Taxes
-        {
-            get
-            {
-                return Products.Sum(x => x.Taxes);
+                return Products.Sum(x => x.PriceTotal);
             }
         }
         public List<BillProductDto> Products { get; set; }
@@ -47,20 +32,13 @@ namespace Cooper.Application.Bills.Dtos
                 return Price * Stock;
             }
         }
-        public decimal? Taxes 
-        {
-            get
-            {
-                return PriceTotal * Convert.ToDecimal(0.18); 
-            }
-        }
         public bool SelledAsWholesale { get; set; }
     }
 
     public class CreateBillDto
     {
         public string ClientName { get; set; }
-        public string? RNC { get; set; }
+        public string? Phone { get; set; }
         public BillStatus Status { get; set; }
         public List<CreateBillProductDto> Products { get; set; }
     }

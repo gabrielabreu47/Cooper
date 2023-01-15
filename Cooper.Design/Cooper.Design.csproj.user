@@ -4,8 +4,38 @@
     <Compile Update="Components\Bill\CreateBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Components\CreateProduct.cs">
+    <Compile Update="Components\Bill\ProductSearch.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Product\ProductForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Product\Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Product\ProductDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Product\UpdatePrice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Product\UpdateStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Report\BillDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Report\BillReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Report\IncomesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Report\Report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Dialog.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Index.cs">
       <SubType>Form</SubType>

@@ -1,5 +1,7 @@
 ﻿
 using Cooper.Design.Components.Bill;
+using Cooper.Design.Components.Product;
+using Cooper.Design.Components.Report;
 using Cooper.Design.Extensions;
 
 namespace Cooper.Design.Forms
@@ -38,11 +40,13 @@ namespace Cooper.Design.Forms
         private void productButton_Click(object sender, EventArgs e)
         {
             SetFocus(productButton);
+            bodyTableLayout.OpenForm<Product>();
         }
 
         private void reportButton_Click(object sender, EventArgs e)
         {
             SetFocus(reportButton);
+            bodyTableLayout.OpenForm<Report>();
         }
     }
 }

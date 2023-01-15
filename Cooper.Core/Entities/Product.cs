@@ -8,23 +8,43 @@ namespace Cooper.Core.Entities
         {
             ProductPrices = new HashSet<ProductPrice>();
         }
-
-        public string Code { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
-        public int Sku { get; set; }
         public int Stock { get; set; }
+        public virtual ICollection<ProductStockDetail> ProductStockDetails { get; set; }
         public virtual ICollection<ProductPrice> ProductPrices { get; set; }
+
+        public ProductStockDetail GetProductStockDetail()
+        {
+            return ProductStockDetails.OrderByDescending(x => x.Date).First();
+        }
 
         public ProductPrice GetProductPrice()
         {
             return ProductPrices.OrderByDescending(x => x.Date).First();
         }
+
+        public ProductPrice GetProductPrice(DateTimeOffset date)
+        {
+            return ProductPrices
+                .Where(x => x.Date <= date)
+                .OrderByDescending(x => x.Date)
+                .First();
+        }
+    }
+
+    public class ProductStockDetail : BaseEntity
+    {
+        public DateTime Date { get; set; }
+        public int StockCountAsRetail { get; set; }
+        public int StockCountAsWholesale { get; set; }
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
     }
 
     public class ProductPrice : BaseEntity
     {
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
         public decimal WholesalePrice { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal PurchasePrice { get; set; }

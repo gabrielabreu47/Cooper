@@ -9,7 +9,6 @@ namespace Cooper.Application.Generic.Interfaces
         Task<TEntity> GetByIdAsNoTrackingAsync(int id);
         Task<TEntity> Create(TEntity entity);
         Task<TEntity> Update(TEntity entity);
-        Task<TEntity> Update(int id, TEntity entity);
         Task Delete(int id);
     }
 }

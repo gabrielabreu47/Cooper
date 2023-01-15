@@ -26,6 +26,7 @@ namespace Cooper.Design
                     services.AddInfrastructure(context.Configuration);
                     services.AddApplication();
                     services.AddForms();
+                    services.AddControllers();
                     services.AddComponents();
                 });
     }

@@ -9,9 +9,9 @@ namespace Cooper.Core.Entities
             Products = new HashSet<BillProduct>();
         }
 
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
         public string? ClientName { get; set; }
-        public string? RNC { get; set; }
+        public string? Phone { get; set; }
         public int State { get; set; }
         public virtual ICollection<BillProduct> Products { get;}
     }
