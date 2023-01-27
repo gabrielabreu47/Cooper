@@ -47,7 +47,7 @@ namespace Cooper.Application.Products.Handlers
         public async Task<ProductDto> GetById(int id)
         {
             var product = await _productService.Query()
-                .Where(x => x.Id == id)
+                .Where(x => x.Id == id && !x.Disabled)
                 .Include(x => x.ProductPrices)
                 .Include(x => x.ProductStockDetails)
                 .FirstOrDefaultAsync();
@@ -69,7 +69,7 @@ namespace Cooper.Application.Products.Handlers
         public async Task<ProductDto> GetByIdAsNoTracking(int id)
         {
             var product = await _productService.Query()
-                .Where(x => x.Id == id)
+                .Where(x => x.Id == id && !x.Disabled)
                 .Include(x => x.ProductPrices)
                 .Include(x => x.ProductStockDetails)
                 .AsNoTracking()

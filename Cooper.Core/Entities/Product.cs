@@ -11,6 +11,7 @@ namespace Cooper.Core.Entities
         public string Name { get; set; }
         public string? Description { get; set; }
         public int Stock { get; set; }
+        public bool Disabled { get; set; }
         public virtual ICollection<ProductStockDetail> ProductStockDetails { get; set; }
         public virtual ICollection<ProductPrice> ProductPrices { get; set; }
 

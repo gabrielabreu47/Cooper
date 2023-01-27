@@ -30,7 +30,6 @@ namespace Cooper.Design
 
         public static IServiceCollection AddControllers(this IServiceCollection services)
         {
-            services.AddTransient<Controllers.Bill.ICreateBillController, Controllers.Bill.CreateBillController>();
             return services;
         }
     }

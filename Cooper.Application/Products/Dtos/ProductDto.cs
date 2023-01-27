@@ -20,9 +20,9 @@ namespace Cooper.Application.Products.Dtos
         [DisplayName("Fecha")]
         public DateTime Date { get; set; }
         [DisplayName("Precio al Detalle")]
-        public decimal WholesalePrice { get; set; }
-        [DisplayName("Precio al por Mayor")]
         public decimal UnitPrice { get; set; }
+        [DisplayName("Precio al por Mayor")]
+        public decimal WholesalePrice { get; set; }
     }
 
     public class ListProductDto

@@ -8,6 +8,7 @@ namespace Cooper.Design.Components.Product
 {
     public partial class Product : UserControl
     {
+        public Action Refresh { get; set; }
         public Product(IMapper mapper, IProductHandler productHandler)
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace Cooper.Design.Components.Product
 
         private async void LoadProductTable()
         {
-            var products = await _productHandler.Get();
+            var products = await _productHandler.Get(x => !x.Disabled);
 
             LoadProductTable(products);
         }
@@ -202,7 +203,7 @@ namespace Cooper.Design.Components.Product
                     return;
                 }
 
-                products = await _productHandler.Get(x => x.Id == searchTextBox.Text.ToInt());
+                products = await _productHandler.Get(x => x.Id == searchTextBox.Text.ToInt() && !x.Disabled);
 
                 LoadProductTable(products.ToList());
 
@@ -210,8 +211,9 @@ namespace Cooper.Design.Components.Product
             }
 
             products = await _productHandler.Get(x => 
-            x.Name.ToUpper().StartsWith(searchTextBox.Text.ToString().ToUpper())
-            || x.Name.Contains(searchTextBox.Text.ToString().ToUpper()));
+            (x.Name.ToUpper().StartsWith(searchTextBox.Text.ToString().ToUpper())
+            || x.Name.Contains(searchTextBox.Text.ToString().ToUpper())) 
+            && !x.Disabled);
 
             LoadProductTable(products.ToList());
         }
@@ -223,9 +225,9 @@ namespace Cooper.Design.Components.Product
             button3.Visible= false;
         }
 
-        private async void UpdateStock(object sender, EventArgs e)
+        private void UpdateStock(object sender, EventArgs e)
         {
-            FormExtensions.OpenFormDialog<UpdateStock>(LoadProductTable);
+            FormExtensions.OpenFormDialog<UpdateStock>(Refresh);
         }
     }
 }

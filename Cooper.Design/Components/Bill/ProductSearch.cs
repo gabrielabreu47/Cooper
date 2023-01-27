@@ -44,7 +44,7 @@ namespace Cooper.Design.Components.Bill
 
         private async void LoadProductTable()
         {
-            var products = await _productHandler.Get();
+            var products = await _productHandler.Get(x => !x.Disabled);
 
             LoadProductTable(products);
         }
@@ -70,7 +70,7 @@ namespace Cooper.Design.Components.Bill
                     return;
                 }
 
-                products = await _productHandler.Get(x => x.Id == searchTextBox.Text.ToInt());
+                products = await _productHandler.Get(x => x.Id == searchTextBox.Text.ToInt() && !x.Disabled);
 
                 LoadProductTable(products.ToList());
 
@@ -78,8 +78,9 @@ namespace Cooper.Design.Components.Bill
             }
 
             products = await _productHandler.Get(x =>
-            x.Name.ToUpper().StartsWith(searchTextBox.Text.ToString().ToUpper())
-            || x.Name.Contains(searchTextBox.Text.ToString().ToUpper()));
+            (x.Name.ToUpper().StartsWith(searchTextBox.Text.ToString().ToUpper()) 
+            || x.Name.Contains(searchTextBox.Text.ToString().ToUpper())) 
+            && !x.Disabled);
 
             LoadProductTable(products.ToList());
         }

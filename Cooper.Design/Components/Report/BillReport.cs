@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
+using Cooper.Application.Bills.Dtos;
+using Cooper.Application.Bills.Enums;
 using Cooper.Application.Bills.Handlers;
 using Cooper.Application.Bills.Interfaces;
 using Cooper.Core.Extensions;
 using Cooper.Design.Extensions;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Linq.Expressions;
 
 namespace Cooper.Design.Components.Report
 {
@@ -39,7 +34,8 @@ namespace Cooper.Design.Components.Report
 
         public void ShowBillTable()
         {
-            bodyTableLayoutPanel.OpenForm(billTable, 0, 0);
+            headerContainer.Visible= true;
+            mainBody.OpenForm(reportBody, 0, 0);
         }
 
         private void BillReport_Load(object sender, EventArgs e)
@@ -47,8 +43,6 @@ namespace Cooper.Design.Components.Report
             startDate.Value = DateTime.Now.AddMonths(-1);
 
             endDate.Value = DateTime.Now;
-
-            LoadBillTable();
         }
 
         private void LoadBillTable(List<BillReportTable> bills)
@@ -57,15 +51,8 @@ namespace Cooper.Design.Components.Report
             {
                 DataSource = bills
             };
-        }
 
-        private async void LoadBillTable()
-        {
-            var currentBills = await _billHandler.Get(startDate.Value, endDate.Value);
-
-            var bills = _mapper.Map<List<BillReportTable>>(currentBills);
-
-            LoadBillTable(bills);
+            ShowBillTable();
         }
 
         private async void billTable_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -78,7 +65,60 @@ namespace Cooper.Design.Components.Report
 
             _mapper.Map(bill, billDetailForm);
 
-            bodyTableLayoutPanel.OpenForm(billDetailForm, 0, 0);
+            var productTable = _mapper.Map<List<BillProductDetailModel>>(bill.Products);
+
+            billDetailForm.productTable.DataSource = new BindingSource { DataSource = productTable };
+
+            billDetailForm.GoBack = FilterTable;
+
+            headerContainer.Visible= false;
+
+            mainBody.OpenForm(billDetailForm, 0, 0);
+        }
+
+        private async void FilterTable()
+        {
+            Expression<Func<Core.Entities.Bill, bool>>? expression = null;
+
+            if (!string.IsNullOrEmpty(clientNameTextBox.Text) && outstandingCheckBox.Checked)
+                expression = x => (x.ClientName!.ToUpper().StartsWith(clientNameTextBox.Text.ToString().ToUpper())
+                    || x.ClientName.ToUpper().Contains(clientNameTextBox.Text.ToString().ToUpper()))
+                && x.State == BillStatus.Pending.ToInt();
+
+            else if (!string.IsNullOrEmpty(clientNameTextBox.Text))
+                expression = x => x.ClientName!.ToUpper().StartsWith(clientNameTextBox.Text.ToString().ToUpper())
+                    || x.ClientName.ToUpper().Contains(clientNameTextBox.Text.ToString().ToUpper());
+
+            else if (outstandingCheckBox.Checked)
+                expression = x => x.State == BillStatus.Pending.ToInt();
+
+            var currentBills = expression == null
+                ? await _billHandler.Get(startDate.Value, endDate.Value) 
+                : await _billHandler.Get(startDate.Value, endDate.Value, expression);
+
+            var bills = _mapper.Map<List<BillReportTable>>(currentBills);
+
+            LoadBillTable(bills);
+        }
+
+        private void outstandingCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            FilterTable();
+        }
+
+        private void endDate_ValueChanged(object sender, EventArgs e)
+        {
+            FilterTable();
+        }
+
+        private void startDate_ValueChanged(object sender, EventArgs e)
+        {
+            FilterTable();
+        }
+
+        private void wholesalePriceTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            FilterTable();
         }
     }
 

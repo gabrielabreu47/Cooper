@@ -7,6 +7,7 @@ using Cooper.Application.Products.Interfaces;
 using Cooper.Core.Entities;
 using Cooper.Core.Extensions;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using System.Net.WebSockets;
 
 namespace Cooper.Application.Bills.Handlers
@@ -25,36 +26,36 @@ namespace Cooper.Application.Bills.Handlers
         }
 
         public virtual async Task<List<BillDto>> Get(BillStatus status, DateTime? startDate = null,
-            DateTime? endDate = null, bool orderByAscending = true)
+            DateTime? endDate = null, Expression<Func<Bill, bool>>? filter = null)
         {
             var query = _billService.Query().Where(x => x.State == status.ToInt());
 
-            var result = await Get(query, startDate, endDate, orderByAscending);
+            var result = await Get(query, startDate, endDate, filter);
 
             return result;
         }
 
         public virtual async Task<List<BillDto>> Get(DateTime? startDate = null,
-            DateTime? endDate = null, bool orderByAscending = true)
+            DateTime? endDate = null, Expression<Func<Bill, bool>>? filter = null)
         {
             var query = _billService.Query();
 
-            var result =  await Get(query, startDate, endDate, orderByAscending);
+            var result =  await Get(query, startDate, endDate, filter);
 
             return result;
         }
 
         private Task<List<BillDto>> Get(IQueryable<Bill> query, DateTime? startDate = null,
-            DateTime? endDate = null, bool orderByAscending = true)
+            DateTime? endDate = null, Expression<Func<Bill, bool>>? filter = null)
         {
 
             if (endDate == null) endDate = DateTime.Now;
 
             if (startDate == null) startDate = endDate.Value.AddDays(-10).Date;
 
-            query = query.Where(x => x.Date >= startDate && x.Date <= endDate);
+            if (filter != null) query = query.Where(filter);
 
-            query = orderByAscending ? query.OrderBy(x => x.Id) : query.OrderByDescending(x => x.Id);
+            query = query.Where(x => x.Date >= startDate && x.Date <= endDate);
 
             var bills = query
                 .Include(x => x.Products)

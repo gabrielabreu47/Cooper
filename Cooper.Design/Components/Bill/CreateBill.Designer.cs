@@ -404,7 +404,7 @@
             this.telephoneTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.telephoneTextBox.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.telephoneTextBox.Location = new System.Drawing.Point(3, 36);
-            this.telephoneTextBox.Mask = "+1 (000) 000-0000";
+            this.telephoneTextBox.Mask = "(999) 000-0000";
             this.telephoneTextBox.Name = "telephoneTextBox";
             this.telephoneTextBox.Size = new System.Drawing.Size(212, 33);
             this.telephoneTextBox.TabIndex = 9;

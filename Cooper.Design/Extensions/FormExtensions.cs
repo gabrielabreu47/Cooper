@@ -88,7 +88,7 @@ namespace Cooper.Design.Extensions
 
             var result = dialog.ShowDialog();
 
-            if (result == DialogResult.OK || result == DialogResult.Yes && OnClose != null) OnClose.Invoke();
+            if (result == DialogResult.OK || result == DialogResult.Yes && OnClose != null) OnClose?.Invoke();
         }
 
         public static void OpenFormDialog<T>(T form, Action? OnClose = null) where T : UserControl

@@ -52,7 +52,7 @@
             this.generalTableLayout.Name = "generalTableLayout";
             this.generalTableLayout.RowCount = 1;
             this.generalTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.generalTableLayout.Size = new System.Drawing.Size(1208, 700);
+            this.generalTableLayout.Size = new System.Drawing.Size(1469, 800);
             this.generalTableLayout.TabIndex = 0;
             // 
             // menuTableLayout
@@ -72,7 +72,7 @@
             this.menuTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.952899F));
             this.menuTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.952899F));
             this.menuTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.69592F));
-            this.menuTableLayout.Size = new System.Drawing.Size(211, 694);
+            this.menuTableLayout.Size = new System.Drawing.Size(258, 794);
             this.menuTableLayout.TabIndex = 1;
             // 
             // billButton
@@ -85,10 +85,10 @@
             this.billButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.billButton.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.billButton.ForeColor = System.Drawing.Color.White;
-            this.billButton.Location = new System.Drawing.Point(0, 93);
+            this.billButton.Location = new System.Drawing.Point(0, 106);
             this.billButton.Margin = new System.Windows.Forms.Padding(0);
             this.billButton.Name = "billButton";
-            this.billButton.Size = new System.Drawing.Size(211, 69);
+            this.billButton.Size = new System.Drawing.Size(258, 79);
             this.billButton.TabIndex = 0;
             this.billButton.Text = "Facturar";
             this.billButton.UseVisualStyleBackColor = false;
@@ -104,10 +104,10 @@
             this.productButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productButton.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.productButton.ForeColor = System.Drawing.Color.White;
-            this.productButton.Location = new System.Drawing.Point(0, 162);
+            this.productButton.Location = new System.Drawing.Point(0, 185);
             this.productButton.Margin = new System.Windows.Forms.Padding(0);
             this.productButton.Name = "productButton";
-            this.productButton.Size = new System.Drawing.Size(211, 69);
+            this.productButton.Size = new System.Drawing.Size(258, 79);
             this.productButton.TabIndex = 1;
             this.productButton.Text = "Almacen";
             this.productButton.UseVisualStyleBackColor = false;
@@ -123,10 +123,10 @@
             this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportButton.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.reportButton.ForeColor = System.Drawing.Color.White;
-            this.reportButton.Location = new System.Drawing.Point(0, 231);
+            this.reportButton.Location = new System.Drawing.Point(0, 264);
             this.reportButton.Margin = new System.Windows.Forms.Padding(0);
             this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(211, 69);
+            this.reportButton.Size = new System.Drawing.Size(258, 79);
             this.reportButton.TabIndex = 2;
             this.reportButton.Text = "Reportes";
             this.reportButton.UseVisualStyleBackColor = false;
@@ -140,12 +140,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.bodyTableLayout, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(220, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(267, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.91354F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.08646F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(985, 694);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1199, 794);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // bodyTableLayout
@@ -161,17 +161,18 @@
             this.bodyTableLayout.RowCount = 2;
             this.bodyTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
             this.bodyTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.44444F));
-            this.bodyTableLayout.Size = new System.Drawing.Size(979, 618);
+            this.bodyTableLayout.Size = new System.Drawing.Size(1193, 707);
             this.bodyTableLayout.TabIndex = 0;
             // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 700);
+            this.ClientSize = new System.Drawing.Size(1469, 800);
             this.Controls.Add(this.generalTableLayout);
             this.Name = "Index";
             this.Text = "Index";
+            this.Load += new System.EventHandler(this.Index_Load);
             this.generalTableLayout.ResumeLayout(false);
             this.menuTableLayout.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

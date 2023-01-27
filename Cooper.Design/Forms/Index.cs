@@ -39,14 +39,27 @@ namespace Cooper.Design.Forms
 
         private void productButton_Click(object sender, EventArgs e)
         {
+            OpenProductForm();
+        }
+
+        private void OpenProductForm()
+        {
             SetFocus(productButton);
-            bodyTableLayout.OpenForm<Product>();
+            var productForm = FormExtensions.GetForm<Product>();
+            productForm.Refresh = OpenProductForm;
+            bodyTableLayout.OpenForm(productForm);
         }
 
         private void reportButton_Click(object sender, EventArgs e)
         {
             SetFocus(reportButton);
             bodyTableLayout.OpenForm<Report>();
+        }
+
+        private void Index_Load(object sender, EventArgs e)
+        {
+            SetFocus(billButton);
+            bodyTableLayout.OpenForm<CreateBill>();
         }
     }
 }

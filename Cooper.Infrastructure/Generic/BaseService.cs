@@ -28,7 +28,7 @@ namespace Cooper.Infrastructure.Generic
             return entity;
         }
 
-        public async Task Delete(int id)
+        public virtual async Task Delete(int id)
         {
             var entity = await GetByIdAsync(id);
 

@@ -1,5 +1,7 @@
 ﻿using Cooper.Application.Bills.Dtos;
 using Cooper.Application.Bills.Enums;
+using Cooper.Core.Entities;
+using System.Linq.Expressions;
 
 namespace Cooper.Application.Bills.Interfaces
 {
@@ -9,10 +11,10 @@ namespace Cooper.Application.Bills.Interfaces
         Task<BillDto> GetById(int id);
 
         Task<List<BillDto>> Get(BillStatus status, DateTime? startDate = null,
-            DateTime? endDate = null, bool orderByAscending = true);
+            DateTime? endDate = null, Expression<Func<Bill, bool>>? filter = null);
 
         Task<List<BillDto>> Get(DateTime? startDate = null,
-            DateTime? endDate = null, bool orderByAscending = true);
+            DateTime? endDate = null, Expression<Func<Bill, bool>>? filter = null);
 
         Task<BillDto> Create(CreateBillDto billDto);
 

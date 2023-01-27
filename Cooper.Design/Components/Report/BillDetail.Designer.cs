@@ -43,8 +43,13 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.phoneLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.changeBillStatusButton = new System.Windows.Forms.Button();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.productTable = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.backButton = new System.Windows.Forms.Button();
@@ -52,16 +57,16 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.productTable = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -157,7 +162,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.billIdLabel.AutoEllipsis = true;
             this.billIdLabel.AutoSize = true;
-            this.billIdLabel.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.billIdLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.billIdLabel.Font = new System.Drawing.Font("Nirmala UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.billIdLabel.Location = new System.Drawing.Point(3, 0);
             this.billIdLabel.Name = "billIdLabel";
             this.billIdLabel.Size = new System.Drawing.Size(808, 42);
@@ -167,6 +173,7 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.665F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.335F));
@@ -178,6 +185,8 @@
             this.tableLayoutPanel4.Controls.Add(this.dateLabel, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.phoneLabel, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label4, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 3, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 45);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -260,6 +269,67 @@
             this.phoneLabel.Text = "(809) 000-0000";
             this.phoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(406, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 46);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Estado";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.changeBillStatusButton, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.statusLabel, 0, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(537, 46);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(271, 46);
+            this.tableLayoutPanel9.TabIndex = 11;
+            // 
+            // changeBillStatusButton
+            // 
+            this.changeBillStatusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.changeBillStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(45)))), ((int)(((byte)(78)))));
+            this.changeBillStatusButton.FlatAppearance.BorderSize = 0;
+            this.changeBillStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeBillStatusButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.changeBillStatusButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.changeBillStatusButton.Location = new System.Drawing.Point(135, 0);
+            this.changeBillStatusButton.Margin = new System.Windows.Forms.Padding(0);
+            this.changeBillStatusButton.Name = "changeBillStatusButton";
+            this.changeBillStatusButton.Size = new System.Drawing.Size(136, 46);
+            this.changeBillStatusButton.TabIndex = 12;
+            this.changeBillStatusButton.Text = "Facturar";
+            this.changeBillStatusButton.UseVisualStyleBackColor = false;
+            this.changeBillStatusButton.Visible = false;
+            this.changeBillStatusButton.Click += new System.EventHandler(this.changeBillStatusButton_Click);
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.statusLabel.Location = new System.Drawing.Point(3, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(129, 46);
+            this.statusLabel.TabIndex = 11;
+            this.statusLabel.Text = "Estado";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
@@ -290,6 +360,46 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1026, 405);
             this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // productTable
+            // 
+            this.productTable.AllowUserToAddRows = false;
+            this.productTable.AllowUserToDeleteRows = false;
+            this.productTable.AllowUserToOrderColumns = true;
+            this.productTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.productTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.productTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.productTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productTable.DefaultCellStyle = dataGridViewCellStyle2;
+            this.productTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productTable.Location = new System.Drawing.Point(3, 70);
+            this.productTable.MultiSelect = false;
+            this.productTable.Name = "productTable";
+            this.productTable.ReadOnly = true;
+            this.productTable.RowHeadersWidth = 70;
+            this.productTable.RowTemplate.Height = 25;
+            this.productTable.ShowCellErrors = false;
+            this.productTable.ShowCellToolTips = false;
+            this.productTable.ShowEditingIcon = false;
+            this.productTable.ShowRowErrors = false;
+            this.productTable.Size = new System.Drawing.Size(1020, 332);
+            this.productTable.TabIndex = 6;
             // 
             // label5
             // 
@@ -408,46 +518,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(17, 29);
             this.dateTimePicker1.TabIndex = 9;
             // 
-            // productTable
-            // 
-            this.productTable.AllowUserToAddRows = false;
-            this.productTable.AllowUserToDeleteRows = false;
-            this.productTable.AllowUserToOrderColumns = true;
-            this.productTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.productTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.productTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.productTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productTable.DefaultCellStyle = dataGridViewCellStyle2;
-            this.productTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productTable.Location = new System.Drawing.Point(3, 70);
-            this.productTable.MultiSelect = false;
-            this.productTable.Name = "productTable";
-            this.productTable.ReadOnly = true;
-            this.productTable.RowHeadersWidth = 70;
-            this.productTable.RowTemplate.Height = 25;
-            this.productTable.ShowCellErrors = false;
-            this.productTable.ShowCellToolTips = false;
-            this.productTable.ShowEditingIcon = false;
-            this.productTable.ShowRowErrors = false;
-            this.productTable.Size = new System.Drawing.Size(1020, 332);
-            this.productTable.TabIndex = 6;
-            // 
             // BillDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -465,11 +535,13 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,5 +571,9 @@
         public Label dateLabel;
         public Label phoneLabel;
         public Label totalLabel;
+        private Label label4;
+        private TableLayoutPanel tableLayoutPanel9;
+        private Button changeBillStatusButton;
+        public Label statusLabel;
     }
 }

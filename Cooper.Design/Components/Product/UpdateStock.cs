@@ -20,7 +20,7 @@ namespace Cooper.Design.Components.Product
 
         private async void UpdateStock_Load(object sender, EventArgs e)
         {
-            var products = await _productHandler.Get();
+            var products = await _productHandler.Get(x => !x.Disabled);
             productComboBox.DataSource = products;
             productComboBox.DisplayMember = "Name";
         }

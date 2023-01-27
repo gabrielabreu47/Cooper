@@ -54,7 +54,10 @@ namespace Cooper.Design.Components.Bill
 
             var createBillDto = _mapper.Map<CreateBillDto>(this);
 
+            if (createBillDto.Phone == "(   )    -") createBillDto.Phone = string.Empty;
+
             await _billHandler.Create(createBillDto);
+
 
             //TODO PRINT BILL
 
