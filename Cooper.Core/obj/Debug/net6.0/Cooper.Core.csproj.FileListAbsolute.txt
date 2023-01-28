@@ -1,0 +1,24 @@
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\bin\Debug\net6.0\Cooper.Core.deps.json
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\bin\Debug\net6.0\Cooper.Core.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\bin\Debug\net6.0\Cooper.Core.pdb
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.csproj.AssemblyReference.cache
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.AssemblyInfoInputs.cache
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.AssemblyInfo.cs
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\refint\Cooper.Core.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\Cooper.Core.pdb
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Core\obj\Debug\net6.0\ref\Cooper.Core.dll
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\bin\Debug\net6.0\Cooper.Core.deps.json
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\bin\Debug\net6.0\Cooper.Core.dll
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\bin\Debug\net6.0\Cooper.Core.pdb
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.csproj.AssemblyReference.cache
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.AssemblyInfoInputs.cache
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.AssemblyInfo.cs
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.csproj.CoreCompileInputs.cache
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.dll
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\refint\Cooper.Core.dll
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\Cooper.Core.pdb
+C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Core\obj\Debug\net6.0\ref\Cooper.Core.dll
