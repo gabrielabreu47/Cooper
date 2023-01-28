@@ -1,4 +1,5 @@
 ﻿
+using Cooper.Design.Templates;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Cooper.Design
@@ -25,6 +26,13 @@ namespace Cooper.Design
             services.AddTransient<Components.Report.BillReport>();
             services.AddTransient<Components.Report.BillDetail>();
             services.AddTransient<Components.Report.Report>();
+            return services;
+        }
+
+        public static IServiceCollection AddTemplates(this IServiceCollection services)
+        {
+            services.AddTransient<invoice>();
+            services.AddTransient<invoiceDetail>();
             return services;
         }
 

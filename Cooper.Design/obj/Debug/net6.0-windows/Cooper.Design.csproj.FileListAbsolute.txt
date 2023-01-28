@@ -264,3 +264,9 @@ C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Design\bin\Debug\net
 C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Design\bin\Debug\net6.0-windows\libwkhtmltox.dll
 C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Design\bin\Debug\net6.0-windows\libwkhtmltox.dylib
 C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Design\bin\Debug\net6.0-windows\libwkhtmltox.so
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\bin\Debug\net6.0-windows\libwkhtmltox.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\bin\Debug\net6.0-windows\libwkhtmltox.dylib
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\bin\Debug\net6.0-windows\libwkhtmltox.so
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\bin\Debug\net6.0-windows\DinkToPdf.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\obj\Debug\net6.0-windows\Cooper.Design.Templates.invoice.resources
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Design\obj\Debug\net6.0-windows\Cooper.Design.Templates.invoiceDetail.resources

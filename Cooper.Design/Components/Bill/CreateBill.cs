@@ -5,9 +5,11 @@ using Cooper.Application.Products.Dtos;
 using Cooper.Application.Products.Interfaces;
 using Cooper.Core.Extensions;
 using Cooper.Design.Extensions;
+using Cooper.Design.Templates;
 using Cooper.Infrastructure.Services;
 using System.ComponentModel;
 using System.Drawing.Printing;
+using System.Windows.Forms;
 
 namespace Cooper.Design.Components.Bill
 {
@@ -70,44 +72,49 @@ namespace Cooper.Design.Components.Bill
 
             PrintBill(billDto);
 
-            ClearAll();
+            //ClearAll();
 
-            GoBack?.Invoke();
-        }
-
-        private void PrintDocument(object sender,
-            WebBrowserDocumentCompletedEventArgs e)
-        {
-            // Print the document now that it is fully loaded.
-            ((WebBrowser)sender).Print();
-
-            // Dispose the WebBrowser now that the task is complete. 
-            ((WebBrowser)sender).Dispose();
+            //GoBack?.Invoke();
         }
 
         private void PrintBill(BillDto bill)
         {
-            try
+            var invoice = FormExtensions.GetForm<invoice>();
+
+            invoice.totalLabel.Text = $"${bill.Total}";
+
+            invoice.dateIdLabel.Text = $"{bill.Date:dd/MM/yyyy} - {bill.Id}";
+
+            invoice.stockLabel.Text = $"ARTICULOS = {bill.Products.Count}";
+
+            foreach(var product in bill.Products)
             {
-                var path = _documentService.GenerateBill(bill);
+                var invoiceDetail = FormExtensions.GetForm<invoiceDetail>();
 
-                // Create a WebBrowser instance. 
-                WebBrowser webBrowserForPrinting = new();
+                invoiceDetail.stockPriceLabel.Text = $"{product.Stock} x {product.Price}";
 
-                // Add an event handler that prints the document after it loads.
-                webBrowserForPrinting.DocumentCompleted +=
-                    new WebBrowserDocumentCompletedEventHandler(PrintDocument);
+                invoiceDetail.priceLabel.Text = $"{product.PriceTotal}";
 
-                webBrowserForPrinting.Width = 302;
+                invoiceDetail.productNameLabel.Text = product.Name;
 
-                // Set the Url property to load the document.
-                webBrowserForPrinting.Url = new Uri(path);
+                invoice.Size = new Size(invoice.Size.Width, invoice.Size.Height + 52);
 
+                invoice.invoiceDetailBody.Controls.Add(invoiceDetail);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            var bitmap = new Bitmap(invoice.Width, invoice.Height);
+
+            invoice.DrawToBitmap(bitmap, new Rectangle(0, 0, invoice.Width, invoice.Height));
+
+            PrintDocument pd = new();
+
+            pd.PrintController = new StandardPrintController();
+
+            pd.PrintPage += (s, e) => e.Graphics!.DrawImage(bitmap, 100, 100);
+
+            pd.Print();
+
+            FormExtensions.OpenFormDialog(invoice);
         }
 
         private void ClearProductArea()

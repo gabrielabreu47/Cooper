@@ -28,6 +28,7 @@ namespace Cooper.Design
                     services.AddForms();
                     services.AddControllers();
                     services.AddComponents();
+                    services.AddTemplates();
                 });
     }
 }

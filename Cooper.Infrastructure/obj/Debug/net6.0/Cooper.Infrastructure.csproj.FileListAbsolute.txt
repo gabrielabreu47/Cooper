@@ -39,3 +39,6 @@ C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Infrastructure\obj\D
 C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Infrastructure\bin\Debug\net6.0\libwkhtmltox.dll
 C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Infrastructure\bin\Debug\net6.0\libwkhtmltox.dylib
 C:\Users\Juan Luis\Downloads\Cooper-main\Cooper-main\Cooper.Infrastructure\bin\Debug\net6.0\libwkhtmltox.so
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Infrastructure\bin\Debug\net6.0\libwkhtmltox.dll
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Infrastructure\bin\Debug\net6.0\libwkhtmltox.dylib
+C:\Users\Gabriel\source\repos\Cooper\Cooper.Infrastructure\bin\Debug\net6.0\libwkhtmltox.so
